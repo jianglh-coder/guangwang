@@ -1,0 +1,430 @@
+/*
+ * Home page styles — Typeless-inspired light aesthetic with editorial serif accents.
+ * Type system: serif (Fraunces) for hero / module H1 H2 only; sans for everything else.
+ * Color: green used in 1–2 anchor moments per section, never decoration.
+ */
+
+/* ========== HOME PAGE BASE ========== */
+.home {
+  background: var(--paper);
+}
+
+/* ========== HERO — number-hook editorial ========== */
+.hero {
+  border-bottom: 0;
+  padding-top: clamp(48px, 6vw, 96px);
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+
+.hero::before { display: none; }
+
+.hero-inner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* Eyebrow — tiny mono caption anchoring the page */
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+/* Headline — oversized number with "分钟" tucked beside */
+.hero-headline {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: clamp(12px, 1.5vw, 24px);
+  margin: 0;
+  line-height: 0.85;
+}
+
+.hero-num {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(140px, 22vw, 320px);
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  line-height: 0.85;
+  font-feature-settings: "ss01", "ss02", "lnum";
+}
+
+.hero-unit {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: clamp(40px, 5vw, 72px);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* Sub-headline — the promise */
+.hero-sub {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(24px, 2.6vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: clamp(24px, 3vw, 40px) 0 0;
+  text-wrap: balance;
+}
+
+.hero-sub em {
+  font-style: italic;
+  color: var(--phosphor);
+  font-weight: 500;
+}
+
+/* Narrative sub-lede */
+.hero-lede-sub {
+  font-family: var(--sans);
+  color: var(--bone-2);
+  font-size: clamp(14px, 1.05vw, 16px);
+  line-height: 1.75;
+  margin-top: clamp(20px, 2.4vw, 28px);
+  max-width: 54ch;
+  text-wrap: pretty;
+}
+
+.hero-lede-sub strong {
+  display: inline;
+  white-space: nowrap;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Ticker — horizontal trust strip */
+.hero-ticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: clamp(32px, 4vw, 48px);
+  padding: 14px 24px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.hero-ticker-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--phosphor);
+  flex-shrink: 0;
+}
+
+.hero-ctas {
+  margin-top: clamp(28px, 3.5vw, 44px);
+  justify-content: center;
+}
+
+/* Legacy classes — hidden in new layout */
+.hero-title,
+.hero-lede,
+.hero-bullets,
+.hero-strike,
+.hero-underline,
+.hero-meta { display: none !important; }
+
+@media (max-width: 720px) {
+  .hero-headline { gap: 8px; }
+  .hero-num { font-size: clamp(96px, 36vw, 180px); }
+  .hero-unit { font-size: clamp(28px, 9vw, 48px); }
+  .hero-sub { font-size: clamp(20px, 6vw, 28px); }
+  .hero-ticker {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  border-bottom: 0;
+  padding-block: clamp(48px, 5.5vw, 84px);
+}
+
+.module-meta {
+  border-bottom: 1px solid var(--line);
+  color: var(--mist);
+}
+
+.module-meta-link {
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+}
+.module-meta-link:hover { color: var(--phosphor); }
+
+/* Section/module titles — Fraunces serif */
+.module-title,
+.section-title {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.module-title em,
+.section-title em {
+  font-style: italic;
+  color: var(--mist-2);
+  font-weight: 500;
+}
+
+.module-sub { color: var(--bone-2); }
+
+/* ========== LAYERS ========== */
+.layers {
+  border: 0;
+  gap: 16px;
+}
+
+.layer {
+  background: var(--card);
+  border: 1px solid var(--line) !important;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.layer:hover {
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.layer-num {
+  font-family: var(--sans);
+  color: var(--mist-2);
+  font-weight: 700;
+  font-size: clamp(40px, 4vw, 64px);
+  letter-spacing: -0.04em;
+}
+
+.layer:hover .layer-num { color: var(--ink); }
+
+.layer-head {
+  border-bottom: 1px solid var(--line);
+}
+
+.layer-name {
+  font-family: var(--sans);
+  color: var(--ink);
+  font-weight: 600;
+}
+.layer-en { color: var(--mist); }
+
+.layer-tagline {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.layer-desc { color: var(--bone-2); }
+
+.layer-services {
+  border-top: 1px solid var(--line);
+  color: var(--bone-2);
+}
+.layer-services .mono { color: var(--mist); font-family: var(--mono); margin-right: 8px; }
+
+.layer-foot {
+  border-top: 1px solid var(--line);
+  color: var(--mist);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+/* ========== CASES ========== */
+.cases-row {
+  border: 0;
+  gap: 16px;
+}
+
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--line) !important;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.4s, transform 0.4s;
+}
+
+.case-card:hover {
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.case-card-head { border-bottom: 1px solid var(--line); }
+.case-card-code { color: var(--mist); }
+.case-card-tag {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-family: var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.case-card-title {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+}
+.case-card-sub { color: var(--mist); }
+.case-card-metrics { border-top: 1px dashed var(--line-strong); }
+.case-card-val {
+  color: var(--ink);
+  font-weight: 600;
+  font-family: var(--sans);
+}
+.case-card-mlabel { color: var(--bone-2); }
+.case-card-foot { border-top: 1px solid var(--line); color: var(--mist); }
+.case-card:hover .case-card-foot { color: var(--ink); }
+
+/* ========== INDUSTRY RADIAL ========== */
+.industry-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(25, 195, 125, 0.05), transparent 60%);
+}
+.industry-radial-rings .r1 { border-color: rgba(25, 195, 125, 0.25); }
+.industry-radial-rings .r2 { border-color: var(--line-strong); }
+.industry-radial-rings .r3 { border-color: var(--line); }
+
+.industry-radial-core {
+  background: radial-gradient(circle at 50% 50%, rgba(25, 195, 125, 0.18), transparent 75%);
+}
+.industry-radial-core .core-label {
+  color: var(--ink);
+  text-shadow: none;
+  font-style: italic;
+  font-weight: 400;
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+}
+.industry-radial-core .core-sub { color: var(--phosphor); font-family: var(--mono); }
+.industry-radial-core .core-pulse { border-color: rgba(25, 195, 125, 0.6); }
+
+.industry-tag.t-primary { color: var(--ink); text-shadow: none; }
+.industry-tag.t-accent  { color: var(--phosphor); text-shadow: none; }
+.industry-tag.t-ember   { color: var(--ember); text-shadow: none; }
+.industry-tag.t-muted   { color: var(--bone-2); text-shadow: none; }
+.industry-tag.t-dim     { color: var(--mist-2); text-shadow: none; }
+.industry-tag:hover {
+  color: var(--phosphor);
+  text-shadow: none;
+}
+
+/* ========== STEPS ========== */
+.steps-module {
+  background: var(--paper-2);
+  border-top: 1px solid var(--line);
+}
+
+.steps-head-title {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.035em;
+}
+.steps-head-title em {
+  font-style: italic;
+  color: var(--phosphor);
+  font-weight: 500;
+}
+.steps-head-rule {
+  background: linear-gradient(to right, transparent, var(--phosphor), transparent);
+}
+
+.steps {
+  border: 0;
+  gap: 16px;
+}
+
+.step {
+  background: var(--card);
+  border: 1px solid var(--line) !important;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.step-num {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  color: var(--mist-2) !important;
+  font-weight: 400;
+  font-style: italic;
+}
+.step:nth-child(1) .step-num { color: var(--ink) !important; }
+.step:nth-child(2) .step-num { color: var(--phosphor) !important; }
+.step:nth-child(3) .step-num { color: var(--ember) !important; }
+
+.step-name {
+  font-family: var(--sans);
+  color: var(--ink);
+  font-weight: 600;
+}
+.step-en { color: var(--mist); }
+.step-body-text { color: var(--bone-2); }
+.step-tags { color: var(--mist); }
+.step-dot { background: var(--phosphor); }
+.step-arrow {
+  background: var(--paper-2);
+  color: var(--mist);
+  font-size: 18px;
+}
+
+/* Steps head CTA — anchored just under the section title */
+.steps-head-cta {
+  margin-top: clamp(8px, 1vw, 16px);
+}
+
+/* ========== FOOTER ========== */
+.footer-bigword {
+  font-family: "Fraunces", "Noto Serif SC", ui-serif, Georgia, serif;
+  font-optical-sizing: auto;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.footer-eco-cn {
+  font-family: var(--sans);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ========== GLOBAL UTILITIES ========== */
+.eyebrow { color: var(--mist); }
+a { color: inherit; }
